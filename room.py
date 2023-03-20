@@ -55,6 +55,7 @@ class Promotion:
         self.__code = code
 
 
+
 class Booking:
     def __init__(self, date_in, date_out, promotion_code, status):
         self.__date_in = date_in
