@@ -30,4 +30,3 @@ class ReserveRoom:
     def __init__(self, room_list):
         self.__room_list = []
 
-
