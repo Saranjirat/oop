@@ -5,3 +5,4 @@ class Hotel:
         self.__offer = offer
         self.__experiences =  experiences
         self.__event_meeting = event_meeting
+    
