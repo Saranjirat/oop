@@ -8,10 +8,10 @@ class account:
         self._contact_email = contact_email
         self._contact_password = contact_password
     
-    def watch_room(self, Roomcatalog, hotel_name):
+    def watch_room(self, Roomcatalog, hotel_name, datetime1, datetime2):
         tamp_rooms_lists = []
-        for i in Roomcatalog:
-            if hotel_name == "Kirimayaresort" and i._hotel_name == "Kirimayaresort" :
+        for i in Roomcatalog._room_lists:
+            if hotel_name == "Kirimayaresort" and i._hotel_name == "Kirimayaresort" and i.room_available(datetime1,datetime2):
                 tamp_rooms_lists = [room for room in Roomcatalog._room_lists if room.get_hotel_name() == "Kirimayaresort" ]
                 return tamp_rooms_lists 
             elif hotel_name == "Muthimaya" :
