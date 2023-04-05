@@ -3,38 +3,53 @@ from Roomcatalog import Roomcatalog
 from room import Room
 from booking import Booking
 from account import customer
+from account import admin
+from Interval import interval
 
-room_plantationview = Room("Plantation View",
+room_plantationview = Room("kirimayaresort",
+                           "Plantation View",
                            "42 sq. m.",
                            "1 Bedroom",
                            "1 Room",
-                           [datetime.datetime(2018, 6, 1, 0, 0), datetime.datetime(2018, 6, 2, 0, 0), 
-                            datetime.datetime(2018, 6, 5, 0, 0), datetime.datetime(2018, 6, 6, 0, 0),
-                            datetime.datetime(2018, 6, 7, 0, 0),datetime.datetime(2018, 6, 8, 0, 0), 
-                            datetime.datetime(2018, 6, 9, 0, 0), datetime.datetime(2018, 6, 10, 0, 0)],
-                            "2000")
-room_horizonview = Room("Horizon View",
+                           [],
+                            "2000"
+                            )
+room_horizonview = Room("kirimayaresort",
+                        "Horizon View",
                         "42 sq. m.",
                         "1 Bedroom",
                         "1 Room",
-                        [datetime.datetime(2018, 6, 1, 0, 0), datetime.datetime(2018, 6, 2, 0, 0), 
-                        datetime.datetime(2018, 6, 5, 0, 0), datetime.datetime(2018, 6, 6, 0, 0),
-                        datetime.datetime(2018, 6, 7, 0, 0),datetime.datetime(2018, 6, 8, 0, 0), 
-                        datetime.datetime(2018, 6, 9, 0, 0), datetime.datetime(2018, 6, 10, 0, 0)],
-                        "3000") 
+                        [],
+                        "3000"
+                        ) 
 mix = customer("mix",
                "saranji",
                "0627370763",
                "mixsaranji",
                "mix1234") 
-mix.add_time(datetime.datetime(2018, 6, 3, 0, 0),datetime.datetime(2018, 6, 5, 0, 0))
-testalog = Roomcatalog([room_plantationview,room_horizonview])
-testalog.checktime_room(mix._time_start,mix._time_out)
-print(testalog._avalible)
-mix.select_room(room_plantationview)
-print(mix._choose_room)
-bookmix=Booking(mix._time_start,mix._time_out,100)
-print(bookmix._date_in)
-print(bookmix._date_out)
 
+xiw = admin("xiw",
+            "tarijnaras",
+            "0950988592",
+            "xiwijnaras",
+            "xiw1234")
 
+start_date= "19-6-2023"
+start_time=  "12:30"
+testalog = Roomcatalog()
+xiw.add_room(room_plantationview,testalog)
+xiw.add_room(room_horizonview,testalog)
+room_plantationview.add_interval(interval(datetime.datetime(2023, 6, 8, 10, 0),datetime.datetime(2023, 6, 9, 10, 0)))
+room_horizonview.add_interval(interval(datetime.datetime(2023, 6, 8, 10, 0),datetime.datetime(2023, 6, 9, 10, 0)))
+for i in room_plantationview._date_not_available: 
+    print(i.get_start_time())
+    print(i.get_end_time())
+print(testalog.find_available_room("12-6-2023","0:00","14-6-2023","0:00"))
+
+# date1 = datetime.datetime(2023, 4, 5, 12, 0)
+# date2 = datetime.datetime(2023, 4, 7, 12, 0)
+# timediff = date2 - date1
+# print(timediff.days)
+# amount = 3000
+# price = timediff.days * amount
+# print(price)
