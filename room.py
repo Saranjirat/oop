@@ -5,7 +5,7 @@ class Room:
         self._room_area = room_area
         self._number_of_bathroom = number_bedroom
         self._number_of_bedroom = number_bathroom
-        self._date_not_available = date_not_available
+        self._date_not_available = []
         self._room_amount = room_amount
         self._status_available = True
 
@@ -23,3 +23,9 @@ class Room:
             if not self.check_no_overlap(i.get_start_time(), i.get_end_time(), datetime1, datetime2):
                 return False
         return True
+    
+    def get_hotel_name(self):
+        return self._hotel_name
+    
+    def get_room_name(self):
+        return self._room_name

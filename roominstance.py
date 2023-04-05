@@ -1,6 +1,6 @@
 from room import Room
 #kirimaya resort
-room_plantationview = Room("Kirimaya-resort"
+room_plantationview = Room("Kirimayaresort",
                            "Plantation View",
                            "42 sq. m.",
                            "1 Bedroom",
@@ -9,7 +9,7 @@ room_plantationview = Room("Kirimaya-resort"
                            "1000")
                 
 
-room_horizonview = Room("Kirimaya-resort",
+room_horizonview = Room("Kirimayaresort",
                         "Horizon View",
                         "42 sq. m.",
                         "1 Bedroom",
@@ -17,7 +17,7 @@ room_horizonview = Room("Kirimaya-resort",
                         [],
                         "2000")
 
-room_terrace_suite = Room("Kirimaya-resort",
+room_terrace_suite = Room("Kirimayaresort",
                           "Terrace Suite",
                           "84 sq. m.",
                           "1 Bedroom",
@@ -55,7 +55,7 @@ room_one_bedroom_delight = Room("Atta",
                                 [],
                                 "2000")
 
-room_two_bedroom_delight = Room("Atta"
+room_two_bedroom_delight = Room("Atta",
                                 "Two Bedroom Delight",
                                 "102 sq. m.",
                                 "2 Bedroom",
@@ -63,7 +63,7 @@ room_two_bedroom_delight = Room("Atta"
                                 [],
                                 "2500")
 
-room_penthouse_suite = Room("Atta"
+room_penthouse_suite = Room("Atta",
                             "Penthouse Suite",
                             "235 sq. m.",
                             "2 Bedroom",
