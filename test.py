@@ -6,14 +6,16 @@ from account import customer
 from account import admin
 from Interval import interval
 
-room_plantationview = Room("Plantation View",
+room_plantationview = Room("kirimaya-resort"
+                           "Plantation View",
                            "42 sq. m.",
                            "1 Bedroom",
                            "1 Room",
                            [],
                             "2000"
                             )
-room_horizonview = Room("Horizon View",
+room_horizonview = Room("kirimaya-resort"
+                        "Horizon View",
                         "42 sq. m.",
                         "1 Bedroom",
                         "1 Room",
@@ -43,3 +45,11 @@ for i in room_plantationview._date_not_available:
     print(i.get_start_time())
     print(i.get_end_time())
 print(testalog.find_available_room("8-6-2018","0:00","9-6-2018","0:00"))
+
+date1 = datetime.datetime(2023, 4, 5, 12, 0)
+date2 = datetime.datetime(2023, 4, 7, 12, 0)
+timediff = date2 - date1
+print(timediff.days)
+amount = 3000
+price = timediff.days * amount
+print(price)

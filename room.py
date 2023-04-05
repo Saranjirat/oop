@@ -1,5 +1,6 @@
 class Room:
-    def __init__(self, room_name, room_area, number_bedroom, number_bathroom, date_not_available, room_amount):
+    def __init__(self, hotel_name, room_name, room_area, number_bedroom, number_bathroom, date_not_available, room_amount):
+        self._hotel_name = hotel_name
         self._room_name = room_name
         self._room_area = room_area
         self._number_of_bathroom = number_bedroom
