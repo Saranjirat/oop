@@ -122,6 +122,6 @@ async def get_available_room(data:dict)->dict:
     print(dt)
     return {"Data": dt}
 
-#a_room = meet.find_available_room("26-03-2023", "09:00", "26-03-2023", "16:00", 30)
-#for i in a_room:
-#    print(i)
+
+
+#{"start_date" : "26-03-2023","start_time":"09:00","end_date": "26-03-2023", "end_time": "16:00", "capacity": "30"}

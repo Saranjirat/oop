@@ -1,3 +1,5 @@
+import datetime
+
 class Room:
     def __init__(self, hotel_name, room_name, room_area, number_bedroom, number_bathroom, date_not_available, room_amount):
         self._hotel_name = hotel_name
@@ -29,3 +31,6 @@ class Room:
     
     def get_room_name(self):
         return self._room_name
+    
+    def __str__(self):
+        return(f"Room name : {self._room_name } , Hotel name : {self._hotel_name}")
