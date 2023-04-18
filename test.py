@@ -14,16 +14,15 @@ room_plantationview = Room("Kirimayaresort",
                            "42 sq. m.",
                            "1 Bedroom",
                            "1 Room",
-                           [],
-                            "2000"
-                            )
+                            "2000",
+                            "PLANTATION.png")
 room_horizonview = Room("Kirimayaresort",
                         "Horizon View",
                         "42 sq. m.",
                         "1 Bedroom",
                         "1 Room",
-                        [],
-                        "3000"
+                        "3000",
+                        "HORIZON.png"
                         ) 
 
 room_muthimaya_forest_poolvilla = Room("Muthimaya",
@@ -31,8 +30,9 @@ room_muthimaya_forest_poolvilla = Room("Muthimaya",
                                        "164 sq. m.",
                                        "1 Bedroom",
                                        "1 Room",
-                                       [],
-                                       "2500")
+                                       
+                                       "2500",
+                                       "MUTHIMAYA.png")
 
 mix = customer("mix",
                "saranji",
@@ -80,7 +80,7 @@ async def root() -> dict:
     return {"Ei": "Ei"}
 
 
-@app.post("/show_available_room")
+@app.post("/show_available_room", tags=["book room"])
 async def show_available_room(data:dict)->dict:
     hotel = data["Hotel"]
     st_d = data["start_date"]
@@ -89,6 +89,12 @@ async def show_available_room(data:dict)->dict:
     end_t = data["end_time"]
 
     a_room = testalog.find_available_room(st_d,st_t,end_d,end_t,hotel)
-    
-    return {"Room": a_room}
+    for i in a_room:
+        print(i)
+    dt = {}
+    for i in a_room:
+        dt[i._room_name] = i._room_pic
+    print(dt)
+    return {"Data": dt}
+    #return {"Data": a_room}
     

@@ -6,7 +6,7 @@ room_plantationview = Room("Kirimayaresort",
                            "1 Bedroom",
                            "1 Room",
                            [],
-                           "1000")
+                           "1000","file="PLANTATION.png"")
                 
 
 room_horizonview = Room("Kirimayaresort",

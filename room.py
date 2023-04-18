@@ -1,7 +1,7 @@
 import datetime
 
 class Room:
-    def __init__(self, hotel_name, room_name, room_area, number_bedroom, number_bathroom, date_not_available, room_amount):
+    def __init__(self, hotel_name, room_name, room_area, number_bedroom, number_bathroom, room_amount ,room_pic):
         self._hotel_name = hotel_name
         self._room_name = room_name
         self._room_area = room_area
@@ -9,6 +9,7 @@ class Room:
         self._number_of_bedroom = number_bathroom
         self._date_not_available = []
         self._room_amount = room_amount
+        self._room_pic = room_pic
         self._status_available = True
 
     def add_interval(self, interval):
