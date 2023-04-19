@@ -1,33 +1,21 @@
-from tkinter import *
 from tkinter import ttk
+from tkinter import *
 import requests
 
 API_ENDPOINT1 = "http://127.0.0.1:8000/show_available_room"
 
-hotel = ["Kirimayaresort","Muthimaya","Atta"]
-
-root = Tk()
-
-root.title("Kiri")
-
-room_name1 = None
-room_name2 = None
+Hotel = ["Kirimayaresort","Muthimaya","Atta"]
 
 def on_click():
     global photo1
-    global btn_list
     global photo2
-    global text1
-    global text2
-    global room_name1
-    global room_name2
-
-
-    text1 = None
-    text2= None
 
     photo1 = None
     photo2 = None
+
+    myWindow = Toplevel()
+    myWindow.geometry = ("500x500")
+    
     print('on click')
     st_date= str(dayin.get())+'-'+str(monthin.get()) +'-'+ str(yearin.get())
     end_date = str(dayout.get())+'-'+str(monthout.get()) +'-'+ str(yearout.get())
@@ -41,68 +29,55 @@ def on_click():
     }
     response = requests.post(API_ENDPOINT1, json=payload)
     if response.ok:
+        
+        value_list = []
         data = response.json()
         data = data['Data']
         print(data)
-        i=0
-        j=0
-        btn_list = []
-
-        key_list = []
-        value_list = []
+        i=1
+        #menu = om["menu"]
+        #menu.delete(0, "end")
+        #for key,value in data.items():
+            #temp = key +  value
+            #menu.add_command(label=temp,command=lambda value=temp: select_opt.set(value))
+        print(data)
+        #for key,value in data.items():
+           # temp = str(key)
+            #menu.add_command(label=temp,command=lambda value=temp: select_opt.set(value))
         for key,value in data.items():
-            
-            key_list.append(key)
+        
             value_list.append(value)
-
+            photo = PhotoImage(file=value)
             
             print(value)
 
-           # btn1 = Button(root, text=str(key), bg="green").place(x=100,y=200+i)
-           # btn2= Button(root, image=photo, borderwidth=0 ).place(x=300,y=200+i)
-
-        print(key_list)
-        if room_name1 == None:
-            room_name1.destroy()
-        if room_name2 == None:
-            room_name2.destroy()
-
+            Button(myWindow, text=str(key), bg="green").place(x=100,y=100+i)
+            i+=150
+            #Button(myWindow, image=photo, borderwidth=0 ).place(x=300,y=200+i)
         
-        if len(key_list) == 1:
-            text1= str(key_list[0])
-            room_name1 =Button(root,text=text1).place(x=100,y=200)
-            #btn_list.append(room_name1)
-
-        if len(key_list) == 2:
-            text1= str(key_list[0])
-            text2= str(key_list[1])
-            room_name1 =Button(root,text=text1).place(x=100,y=200)
-            
-            j+=150
-            room_name2 =Button(root,text=text2).place(x=100,y=200+j)
-           #btn_list.append(room_name1)
-            #btn_list.append(room_name2)
-
-###########################################################
         print(value_list)
         j=0
         if len(value_list) == 1:
             photo1 = PhotoImage(file=value_list[0])
-            label1 = Label(root,image=photo1).place(x=300,y=200)
-            #btn_list.append(label1)
-
+            label1 = Label(myWindow,image=photo1).place(x=300,y=100)
+        
         if len(value_list) == 2:
+            print('kuy')
             photo1 = PhotoImage(file=value_list[0])
-            label1 = Label(root,image=photo1).place(x=300,y=200)
             photo2 = PhotoImage(file=value_list[1])
+            print(photo1)
+            print(photo2)
+            label1 = Label(myWindow,image=photo1).place(x=300,y=100)
+            
             j+=150
-            label2 = Label(root,image=photo2).place(x=300,y=200+j)
-            #btn_list.append(label1)
-            #btn_list.append(label2)
-
-        print(btn_list)
+            label2 = Label(myWindow,image=photo2).place(x=300,y=100+j)
+        myWindow.mainloop()
     return
 
+
+root = Tk()
+
+root.title("Kiri")
 
 dayin = StringVar()
 monthin  = StringVar()
@@ -144,7 +119,7 @@ cbo_year_return.place(x = 525 , y = 30)
 btn = Button(root, text="Search", bg="green", command=on_click)
 btn.place(x = 485, y = 80)
 
-choose_hotel = OptionMenu(root, select_hotel, *hotel)
+choose_hotel = OptionMenu(root, select_hotel, *Hotel)
 choose_hotel.config(width=15)
 choose_hotel.place(x= 650,y = 27)
 

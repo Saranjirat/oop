@@ -55,7 +55,7 @@ testalog.add_room(room_horizonview)
 testalog.add_room(room_muthimaya_forest_poolvilla)
 
 room_plantationview.add_interval(interval(datetime.datetime(2023, 6, 10, 10, 0),datetime.datetime(2023, 6, 17, 10, 0)))
-room_horizonview.add_interval(interval(datetime.datetime(2023, 6, 8, 10, 0),datetime.datetime(2023, 6, 9, 10, 0)))
+room_horizonview.add_interval(interval(datetime.datetime(2023, 6, 10, 10, 0),datetime.datetime(2023, 6, 11, 10, 0)))
 
 
 for i in room_plantationview._date_not_available: 
