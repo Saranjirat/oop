@@ -15,14 +15,14 @@ room_plantationview = Room("Kirimayaresort",
                            "1 Bedroom",
                            "1 Room",
                             "2000",
-                            "PLANTATION.png")
+                            "PICTURE\PLANTATION.png")
 room_horizonview = Room("Kirimayaresort",
                         "Horizon View",
                         "42 sq. m.",
                         "1 Bedroom",
                         "1 Room",
                         "3000",
-                        "HORIZON.png"
+                        "PICTURE\HORIZON.png"
                         ) 
 
 room_muthimaya_forest_poolvilla = Room("Muthimaya",
@@ -32,7 +32,7 @@ room_muthimaya_forest_poolvilla = Room("Muthimaya",
                                        "1 Room",
                                        
                                        "2500",
-                                       "MUTHIMAYA.png")
+                                       "PICTURE\MUTHIMAYA.png")
 
 mix = customer("mix",
                "saranji",

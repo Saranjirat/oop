@@ -13,8 +13,10 @@ def on_click():
     photo1 = None
     photo2 = None
 
+    
     myWindow = Toplevel()
-    myWindow.geometry = ("500x500")
+    myWindow.title("room")
+    myWindow.geometry = ("1024x720+200+50")
     
     print('on click')
     st_date= str(dayin.get())+'-'+str(monthin.get()) +'-'+ str(yearin.get())
