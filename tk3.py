@@ -32,6 +32,7 @@ def on_click():
     response = requests.post(API_ENDPOINT1, json=payload)
     if response.ok:
         
+    
         value_list = []
         data = response.json()
         data = data['Data']
